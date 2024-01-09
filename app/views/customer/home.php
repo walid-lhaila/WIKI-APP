@@ -80,16 +80,16 @@
               <div class="flex items-center">
 
                                                   <!--REGESTRATION-->
-                <a href="<?php echo URLROOT?>/customer/login"><button type="button" class=" font-medium bg-white flex-shrink-0 rounded-lg p-1 text-black hover:bg-red focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-600 focus:ring-white">Create an Account</button></a>
+                <a href="<?php echo URLROOT?>/customer/registration"><button type="button" class=" font-medium bg-white flex-shrink-0 rounded-lg p-1 text-black hover:bg-red focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-600 focus:ring-white">Create an Account</button></a>
                   
                 <!-- Profile dropdown -->
                 <div x-data="Components.menu({ open: false })" x-init="init()" @keydown.escape.stop="open = false; focusButton()" @click.away="onClickAway($event)" class="ml-3 relative flex-shrink-0">
                   <div>
 
                                                              <!--LOGIN-->
-                    <button type="button" class=" font-medium bg-white flex-shrink-0 rounded-lg p-1 text-black hover:bg-orange">
+                    <a href="<?php echo URLROOT?>/customer/login"><button type="button" class=" font-medium bg-white flex-shrink-0 rounded-lg p-1 text-black hover:bg-orange">
                       Log In
-                    </button>
+                    </button></a>
                   </div>
                   
                   

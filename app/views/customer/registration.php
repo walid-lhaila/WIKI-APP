@@ -9,8 +9,8 @@
 <div class="bg-gray-200">
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto">
-        
-  <form class="space-y-8 divide-y divide-gray-200">
+    <div id="form">
+  <form id="form" class="space-y-8 divide-y divide-gray-200">
     <div class="space-y-8 divide-y divide-gray-200">
       <div class="flex justify-center">
         <img class="h-44 w-48" src="<?php echo URLROOT?>/img/wikipedia-removebg-preview.png" alt="">
@@ -19,7 +19,7 @@
       <div class="pt-8">
         <div>
           <h3 class="text-lg leading-6 font-medium text-gray-900">
-            Personal Information
+            Create a Acoount
           </h3>
           <p class="mt-1 text-sm text-gray-500">
             Use a permanent address where you can receive mail.
@@ -55,7 +55,7 @@
 
           <div class="sm:col-span-3">
             <label for="country" class="block text-sm font-medium text-gray-700">
-              Picture
+              Picture (Optional)
             </label>
             <div class="sm:col-span-6">
             
@@ -82,7 +82,7 @@
 
     <div class="pt-5">
       <div class="flex justify-center">
-        <a href=""><button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+        <a href="<?php echo URLROOT?> /customer/home"><button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
           Cancel
         </button></a>
         <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -91,6 +91,7 @@
       </div>
     </div>
   </form>
+  </div>
 
       </div>
     </div>
