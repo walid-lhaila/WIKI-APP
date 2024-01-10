@@ -17,9 +17,7 @@
             $this->view('pages/index' , $data );
         }
         
-        public function login(){
-            $this->view('pages/login');
-        }
+        
         public function registration(){
            if(isset($_POST['addRegister'])){
             $userId = uniqid();
@@ -48,14 +46,16 @@
                 die($e->getMessage());
             }
 
-            
-            
-
-
-            
-            
            }
             $this->view('pages/registration');
+        }
+
+        public function login(){
+            
+
+
+
+            $this->view('pages/login');
         }
     }
 
