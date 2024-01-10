@@ -16,6 +16,28 @@ class Admin extends Controller {
 
    public function categories(){
     $this->view('admin/categories');
+    if(isset($_POST["addCategory"])){
+        $categoryId = uniqid();
+        $categoryName = $_POST["name"];
+        $categoryDesc = $_POST["desc"];
+
+        $categoryToAdd = new Category();
+        $categoryToAdd->setCategoryId($categoryId);
+        $categoryToAdd->setCategoryName($categoryName);
+        $categoryToAdd->setCategoryDesc($categoryDesc);
+        
+        $categoryService = new CategoryServiceImp();
+
+        try{
+            $categoryService->addCategory($categoryToAdd);
+
+        }catch(PDOException $e){
+            die($e->getMessage());
+        }
+
+
+    }
+
    }
    public function wikis(){
     $this->view('admin/wikis');
