@@ -51,7 +51,23 @@
         }
 
         public function login() {
-           
+            if(isset($_POST["login"])){
+                $username = $_POST["username"];
+                $pw = password_verify($_POST["pw"],PASSWORD_DEFAULT);
+
+                $logging = new AppUser();
+                $logging->setUsername() = $username;
+                $logging->setPw() = $pw;
+
+                $securityService = new SecurityServiceImp();
+
+                try {
+                    $loggingUserData = $securityService->login($logging);
+                    if($logging){
+                        
+                    }
+                }
+            }
         
             $this->view('pages/login');
         }

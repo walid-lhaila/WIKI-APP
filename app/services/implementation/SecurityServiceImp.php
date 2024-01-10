@@ -56,11 +56,16 @@ class SecurityServiceImp implements SecurityService{
         else if($_SESSION["roleName"] === "author"){
             header("location:".URLROOT."customer/home");
         }
-        else if ($_SESSION["roleName"] === "admin"){
+    }
+
+    public function checkForAuthor(){
+        if(empty($_SESSION["roleName"])){
+            header("location:".URLROOT);
+    }else if ($_SESSION["roleName"] === "admin"){
             header("location:".URLROOT."admin/dashboard");
-        }
     }
 }
 
+}
 
 ?>
