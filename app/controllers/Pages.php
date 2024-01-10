@@ -68,9 +68,14 @@
                         $_SESSION["userId"] = $loggingUserData->userId;
                         $role = $securityService->checkForRole($loggingUserData->userId);
                         if($role->roleName == "author"){
+                            $_SESSION["roleName"] = "author";
+                        }else{
+                            $_SESSION["roleName"] = "admin";
                             
                         }
                     }
+                }catch(PDOException $e){
+                    die($e->getMessage());
                 }
             }
         
