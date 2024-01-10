@@ -125,7 +125,7 @@
                 </button>
               </div>
               <div>
-                <a href="<?php echo URLROOT?>/customer/registration" class="font-medium text-indigo-600 hover:text-indigo-500">Create a account</a>
+                <a href="<?php echo URLROOT?>/pages/registration" class="font-medium text-indigo-600 hover:text-indigo-500">Create a account</a>
               </div>
             </form>
           </div>

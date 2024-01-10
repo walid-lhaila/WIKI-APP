@@ -16,11 +16,30 @@
             
             $this->view('pages/index' , $data );
         }
-        public function about() {
-            $data = [
-                'title' => 'About us' 
-            ];
-            $this->view('pages/about' , $data);
+        
+        public function login(){
+            $this->view('pages/login');
         }
+        public function registration(){
+           if(isset($_POST['addRegister'])){
+            $db = Database::getInstance();
+            $userId = uniqid();
+            $username = $_POST['$username'];
+            $pw = $_POST['$pw'];
+            $email = $_POST['$email'];
 
+            $userToAdd = new AppUser();
+            $userToAdd->setUserId($userId);
+            $userToAdd->setUsername($username);
+            $userToAdd->setPw($pw);
+            $userToAdd->setEmail($email);
+
+            $SecurityService = new SecurityServiceImp();
+            $SecurityService->register($userToAdd);
+           }
+
+
+
+            $this->view('pages/registration');
+        }
     }
