@@ -24,6 +24,19 @@ class SecurityServiceImp implements SecurityService{
             die($e->getMessage());
         }
     }
+
+    public function login(AppUser $user){
+        $loginQuery = "SELECT * FROM appUser WHERE username = :username AND pw = :pw";
+        $this->db->query($loginQuery);
+        $this->db->bind(":username", $user->getUsername());
+        $this->db->bind(":pw", $user->getPw());
+
+        try {
+            return $this->db->fetchOneRow();
+        }catch (PDOException $e){
+            die($e->getMessage());
+        }
+    }
 }
 
 
