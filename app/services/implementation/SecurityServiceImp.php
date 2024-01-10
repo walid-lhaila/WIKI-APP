@@ -37,6 +37,29 @@ class SecurityServiceImp implements SecurityService{
             die($e->getMessage());
         }
     }
+
+    public function checkForRole($userId){
+        $checkForRoleQuery = "SELECT * FROM roleOfUser WHERE userId = :userId";
+        $this->db->query($checkForRoleQuery);
+        $this->db->bind(":userId", $userId);
+        try {
+            return $this->db->fetchOneRow();
+        }catch(PDOException $e){
+            die($e->getMessage());
+        }
+    }
+
+    public function chackForAdmin(){
+        if(empty($_SESSION["roleName"])){
+            header("location:".URLROOT);
+        }
+        else if($_SESSION["roleName"] === "author"){
+            header("location:".URLROOT."customer/home");
+        }
+        else if ($_SESSION["roleName"] === "admin"){
+            header("location:".URLROOT."admin/dashboard");
+        }
+    }
 }
 
 
