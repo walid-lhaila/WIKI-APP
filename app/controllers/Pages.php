@@ -64,7 +64,12 @@
                 try {
                     $loggingUserData = $securityService->login($logging);
                     if($logging){
-                        
+                        $_SESSION["username"] = $loggingUserData->username;
+                        $_SESSION["userId"] = $loggingUserData->userId;
+                        $role = $securityService->checkForRole($loggingUserData->userId);
+                        if($role->roleName == "author"){
+                            
+                        }
                     }
                 }
             }
