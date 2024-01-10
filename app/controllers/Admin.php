@@ -14,6 +14,9 @@ class Admin extends Controller {
     $this->view('admin/dashboard');
    }
 
+
+
+
    public function categories(){
    
     if(isset($_POST["addCategory"])){
@@ -37,14 +40,44 @@ class Admin extends Controller {
     }
         $this->view('admin/categories');
    }
+
+
+
+
    public function wikis(){
     $this->view('admin/wikis');
    }
+
+
+
+
+
    public function tags(){
+    if(isset($_POST["addTag"])){
+    $tagId = uniqid();
+    $tagName = $_POST["tagName"];
+    
+    $tagToAdd = new Tag();
+    $tagToAdd->setTagId($tagId);
+    $tagToAdd->setTagName($tagName);
+    
+    $tagService = new tagServiceImp();
+
+        try {
+            $tagService->addTag($tagToAdd);
+        }catch(PDOException $e){
+            die($e->getMessage());
+         }
+    }
     $this->view('admin/tags');
    }
 
 
+
+
+   public function user(){
+    $this->view('admin/user');
+   }
 
 }
 
