@@ -50,45 +50,51 @@
             $this->view('pages/registration');
         }
 
-        public function login(){
+        public function login() {
             if (isset($_POST['login'])) {
                 // Handle user login logic here
-                $username = $_POST['username'];
-                $password = $_POST['pw'];
-    
-                $userToLogin = new AppUser();
-                $userToLogin->setUsername($username);
-                $userToLogin->setPw($password);
-    
-                $securityService = new SecurityServiceImp();
-                $userData = $securityService->login($userToLogin);
-    
-                if ($userData) {
-                    // Login successful, redirect based on role
-                    $user = $userData['user'];
-                    $role = $userData['role'];
-    
-                    if ($role->getRoleName() === 'author') {
-                        header("Location: " . URLROOT . "/customer/home");
-                        exit;
-                    } elseif ($role->getRoleName() === 'admin') {
-                        header("Location: " . URLROOT . "/admin/dashboard");
+                $username = isset($_POST['username']) ? $_POST['username'] : null;
+                $password = isset($_POST['pw']) ? $_POST['pw'] : null;
+        
+                if ($username !== null && $password !== null) {
+                    $userToLogin = new AppUser();
+                    $userToLogin->setUsername($username);
+                    $userToLogin->setPw($password);
+        
+                    $securityService = new SecurityServiceImp();
+                    $userData = $securityService->login($userToLogin);
+        
+                    if ($userData) {
+                        // Login successful, redirect based on role
+                        $user = $userData['user'];
+                        $role = $userData['role'];
+                    
+                        if ($role->getRoleName() === 'author') {
+                            header("Location: " . URLROOT . "/customer/home");
+                            exit;
+                        } elseif ($role->getRoleName() === 'admin') {
+                            header("Location: " . URLROOT . "/admin/dashboard");
+                            exit;
+                        }
+                    }else {
+                        // Invalid login, handle accordingly
+                        // You may want to set an error message and display it in your login view
+                        $data = [
+                            'error' => 'Invalid username or password',
+                        ];
+                        $this->view('pages/login', $data);
                         exit;
                     }
                 } else {
-                    // Invalid login, handle accordingly
-                    // You may want to set an error message and display it in your login view
+                    // Handle the case where username or password is not set in $_POST
                     $data = [
-                        'error' => 'Invalid username or password',
+                        'error' => 'Username or password not provided',
                     ];
                     $this->view('pages/login', $data);
                     exit;
                 }
             }
-
-
-
-
+        
             $this->view('pages/login');
         }
     }
