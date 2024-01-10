@@ -4,7 +4,7 @@ class Role {
     public function __construct(){
 
     }
-    public function getRolName(){
+    public function getRoleName(){
         return $this->roleName;
     }
     public function setRoleName($roleName){

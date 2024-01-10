@@ -36,6 +36,10 @@
 
             $SecurityService = new SecurityServiceImp();
             $SecurityService->register($userToAdd);
+
+
+            $roleOfUser = new RoleOfUser();
+            $roleOfUser->user = $userToAdd;
            }
 
 

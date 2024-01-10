@@ -1,25 +1,24 @@
 <?php 
-    class RoleOfUserServiceImp implements RoleOfUserService{
-        private Database $db;
+   class RoleOfUserServiceImp implements RoleOfUserService {
+    private Database $db;
 
-        public function __construct(){
-            $this->db = Database::getInstance();
-        }
-
-        public function addRoleOfUser(RoleOfUser $roleOfUser){
-            $addRoleOfUserQuery = "INSERT INTO roleOfuser VALUES (:userId, :roleName)";
-            $this->db->query($addRoleOfUserQuery);
-            $this->db->bind(":userId", $roleOfUser->getUser());
-            $this->db->bind(":roleName", "author");
-
-            try {
-                $this->db->execute();
-            }catch(PDOException $e){
-                die($e->getMessage());
-            }
-        }
-
+    public function __construct(){
+        $this->db = Database::getInstance();
     }
+
+    public function addRoleOfUser(RoleOfUser $roleOfUser){
+        $addRoleOfUserQuery = "INSERT INTO roleOfuser (userId, roleName) VALUES (:userId, :roleName)";
+        $this->db->query($addRoleOfUserQuery);
+        $this->db->bind(":userId", $roleOfUser->getUser()->getUserId()); // Assuming getUserId method in AppUser
+        $this->db->bind(":roleName", "author"); // Assuming getRoleName method in Role
+
+        try {
+            $this->db->execute();
+        } catch(PDOException $e){
+            die($e->getMessage());
+        }
+    }
+}
 
 
 
