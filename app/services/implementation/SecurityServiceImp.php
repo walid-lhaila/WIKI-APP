@@ -30,10 +30,21 @@ class SecurityServiceImp implements SecurityService{
         $this->db->query($loginQuery);
         $this->db->bind(":username", $user->getUsername());
         $this->db->bind(":pw", $user->getPw());
-
+    
         try {
-            return $this->db->fetchOneRow();
-        }catch (PDOException $e){
+            $userData = $this->db->fetchOneRow();
+            
+            if ($userData) {
+                $loggedInUser = new AppUser();
+                $loggedInUser->setUserId($userData->userId);
+                $loggedInUser->setUsername($userData->username);
+                // Set other properties as needed
+    
+                return $loggedInUser;
+            }
+    
+            return null; // or handle the case where login is unsuccessful
+        } catch (PDOException $e) {
             die($e->getMessage());
         }
     }
@@ -49,7 +60,7 @@ class SecurityServiceImp implements SecurityService{
         }
     }
 
-    public function chackForAdmin(){
+    public function checkForAdmin(){
         if(empty($_SESSION["roleName"])){
             header("location:".URLROOT);
         }

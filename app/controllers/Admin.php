@@ -4,8 +4,15 @@ class Admin extends Controller {
     public function __construct(){
 
     }
+   
+ 
 
    public function dashboard(){
+    $securityService = new SecurityServiceImp();
+        $securityService->checkForAdmin();
+        $data = [
+          "role" => $_SESSION["roleName"]
+        ];
     $this->view('admin/dashboard');
    }
 

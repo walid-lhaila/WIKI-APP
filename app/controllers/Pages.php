@@ -51,30 +51,34 @@
         }
 
         public function login() {
-            if(isset($_POST["login"])){
+            if (isset($_POST["login"])) {
                 $username = $_POST["username"];
-                $pw = password_verify($_POST["pw"],PASSWORD_DEFAULT);
-
+                $password = $_POST["pw"]; // Don't use password_verify here
+        
                 $logging = new AppUser();
-                $logging->setUsername() = $username;
-                $logging->setPw() = $pw;
-
+                $logging->setUsername($username);
+                $logging->setPw($password);
+        
                 $securityService = new SecurityServiceImp();
-
+        
                 try {
                     $loggingUserData = $securityService->login($logging);
-                    if($logging){
-                        $_SESSION["username"] = $loggingUserData->username;
-                        $_SESSION["userId"] = $loggingUserData->userId;
-                        $role = $securityService->checkForRole($loggingUserData->userId);
-                        if($role->roleName == "author"){
+                    if ($loggingUserData) {
+                        $username = $loggingUserData->getUsername();
+                        $userId = $loggingUserData->getUserId();
+        
+                        $_SESSION["username"] = $username;
+                        $_SESSION["userId"] = $userId;
+        
+                        $role = $securityService->checkForRole($userId);
+        
+                        if ($role->roleName == "author") {
                             $_SESSION["roleName"] = "author";
-                        }else{
+                        } else {
                             $_SESSION["roleName"] = "admin";
-                            
                         }
                     }
-                }catch(PDOException $e){
+                } catch (PDOException $e) {
                     die($e->getMessage());
                 }
             }
