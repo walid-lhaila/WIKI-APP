@@ -24,8 +24,6 @@ class SecurityServiceImp implements SecurityService{
             die($e->getMessage());
         }
     }
-
-
 }
 
 
