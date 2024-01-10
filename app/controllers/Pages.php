@@ -22,7 +22,7 @@
            if(isset($_POST['addRegister'])){
             $userId = uniqid();
             $username = $_POST['username'];
-            $pw = password_hash($_POST['pw'],PASSWORD_DEFAULT);
+            $pw = $_POST['pw'];
             $email = $_POST['email'];
 
             $userToAdd = new AppUser();
@@ -64,27 +64,29 @@
                 try {
                     $loggingUserData = $securityService->login($logging);
                     if ($loggingUserData) {
-                        $username = $loggingUserData->getUsername();
-                        $userId = $loggingUserData->getUserId();
-        
+                        
                         $_SESSION["username"] = $username;
-                        $_SESSION["userId"] = $userId;
+                        $_SESSION["userId"] = $loggingUserData->userId;
         
-                        $role = $securityService->checkForRole($userId);
+                        $role = $securityService->checkForRole($loggingUserData->userId);
         
                         if ($role->roleName == "author") {
                             $_SESSION["roleName"] = "author";
-                        } else {
+                            header("Location:". URLROOT . "/customer/home");
+                            exit();
+                        } else if($role->roleName == "admin") {
                             $_SESSION["roleName"] = "admin";
+                            header("Location:" . URLROOT . "/admin/dashboard");
+                            exit();
                         }
                     }
                 } catch (PDOException $e) {
                     die($e->getMessage());
                 }
             }
-        
             $this->view('pages/login');
         }
+
     }
 
 ?>

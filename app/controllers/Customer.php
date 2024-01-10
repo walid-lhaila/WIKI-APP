@@ -11,10 +11,8 @@ class Customer extends Controller{
         public function index(){
             $securityService = new SecurityServiceImp();
             $securityService->checkForAuthor();
-            $data = [
-                "role" => $_SESSION["roleName"]
-            ];
-           $this->view("customer/index",$data);
+           
+           $this->view("customer/home");
         }
     }
 

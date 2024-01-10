@@ -30,20 +30,8 @@ class SecurityServiceImp implements SecurityService{
         $this->db->query($loginQuery);
         $this->db->bind(":username", $user->getUsername());
         $this->db->bind(":pw", $user->getPw());
-    
         try {
-            $userData = $this->db->fetchOneRow();
-            
-            if ($userData) {
-                $loggedInUser = new AppUser();
-                $loggedInUser->setUserId($userData->userId);
-                $loggedInUser->setUsername($userData->username);
-                // Set other properties as needed
-    
-                return $loggedInUser;
-            }
-    
-            return null; // or handle the case where login is unsuccessful
+            return $this->db->fetchOneRow();
         } catch (PDOException $e) {
             die($e->getMessage());
         }

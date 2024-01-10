@@ -9,10 +9,8 @@ class Admin extends Controller {
 
    public function dashboard(){
     $securityService = new SecurityServiceImp();
-        $securityService->checkForAdmin();
-        $data = [
-          "role" => $_SESSION["roleName"]
-        ];
+    $securityService->checkForAdmin();  
+    // var_dump($_SESSION["roleName"]);
     $this->view('admin/dashboard');
    }
 
