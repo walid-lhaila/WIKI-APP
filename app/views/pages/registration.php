@@ -10,7 +10,7 @@
     <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
       <div class="max-w-3xl mx-auto">
     <div id="form">
-  <form id="form" class="space-y-8 divide-y divide-gray-200">
+  <form id="form" method="post" class="space-y-8 divide-y divide-gray-200">
     <div class="space-y-8 divide-y divide-gray-200">
       <div class="flex justify-center">
         <img class="h-44 w-48" src="<?php echo URLROOT?>/img/wikipedia-removebg-preview.png" alt="">

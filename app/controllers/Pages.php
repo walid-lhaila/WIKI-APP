@@ -39,11 +39,10 @@
 
 
             $roleOfUser = new RoleOfUser();
-            $roleOfUser->user = $userToAdd;
+            $roleOfUser->setUser($userToAdd);
            }
-
-
-
             $this->view('pages/registration');
         }
     }
+
+?>
