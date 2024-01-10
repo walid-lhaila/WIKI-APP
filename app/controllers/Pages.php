@@ -24,7 +24,7 @@
            if(isset($_POST['addRegister'])){
             $userId = uniqid();
             $username = $_POST['username'];
-            $pw = $_POST['pw'];
+            $pw = password_hash($_POST['pw'],PASSWORD_DEFAULT);
             $email = $_POST['email'];
 
             $userToAdd = new AppUser();
