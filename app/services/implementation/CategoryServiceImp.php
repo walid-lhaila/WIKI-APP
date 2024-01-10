@@ -8,7 +8,7 @@ class CategoryServiceImp implements CategoryService {
     }
 
     public function addCategory(Category $category){
-        $addCategoryQuery = "INSERT INTO category (categoryId, categoryName, categoryDesc, category_at) VALUES (:categoryId, :categoryName, :categoryDesc NOW())";
+        $addCategoryQuery = "INSERT INTO category (categoryId, categoryName, categoryDesc, created_at) VALUES (:categoryId, :categoryName, :categoryDesc, NOW())";
         $this->db->query($addCategoryQuery);
         $this->db->bind(":categoryId", $category->getCategoryId());
         $this->db->bind(":categoryName", $category->getCategoryName());
@@ -16,7 +16,7 @@ class CategoryServiceImp implements CategoryService {
 
         try {
             $this->db->execute();
-            
+
         }catch(PDOException $e){
             die($e->getMessage());
         }

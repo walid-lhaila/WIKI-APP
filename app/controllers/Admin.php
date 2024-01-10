@@ -15,11 +15,11 @@ class Admin extends Controller {
    }
 
    public function categories(){
-    $this->view('admin/categories');
+   
     if(isset($_POST["addCategory"])){
         $categoryId = uniqid();
-        $categoryName = $_POST["name"];
-        $categoryDesc = $_POST["desc"];
+        $categoryName = $_POST["categoryName"];
+        $categoryDesc = $_POST["categoryDesc"];
 
         $categoryToAdd = new Category();
         $categoryToAdd->setCategoryId($categoryId);
@@ -34,10 +34,8 @@ class Admin extends Controller {
         }catch(PDOException $e){
             die($e->getMessage());
         }
-
-
     }
-
+        $this->view('admin/categories');
    }
    public function wikis(){
     $this->view('admin/wikis');
