@@ -1,5 +1,5 @@
 <?php 
-   class RoleOfUserServiceImp implements RoleOfUserService {
+   class RoleOfUserServicesImp implements RoleOfUserServices {
     private Database $db;
 
     public function __construct(){

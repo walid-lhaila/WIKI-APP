@@ -1,5 +1,5 @@
 <?php 
-interface RoleOfUserService{
+interface RoleOfUserServices{
     public function addRoleOfUser(RoleOfUser $roleOfUser);
 }
 

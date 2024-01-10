@@ -22,11 +22,10 @@
         }
         public function registration(){
            if(isset($_POST['addRegister'])){
-            $db = Database::getInstance();
             $userId = uniqid();
-            $username = $_POST['$username'];
-            $pw = $_POST['$pw'];
-            $email = $_POST['$email'];
+            $username = $_POST['username'];
+            $pw = $_POST['pw'];
+            $email = $_POST['email'];
 
             $userToAdd = new AppUser();
             $userToAdd->setUserId($userId);
@@ -34,12 +33,27 @@
             $userToAdd->setPw($pw);
             $userToAdd->setEmail($email);
 
-            $SecurityService = new SecurityServiceImp();
-            $SecurityService->register($userToAdd);
-
 
             $roleOfUser = new RoleOfUser();
             $roleOfUser->setUser($userToAdd);
+            $SecurityService = new SecurityServiceImp();
+            $roleOfUserService = new RoleOfUserServicesImp();
+            
+
+            try{
+                $SecurityService->register($userToAdd);
+                $roleOfUserService->addRoleOfUser($roleOfUser); 
+                header("Location:". URLROOT ."/pages/login"); 
+            }catch(PDOException $e){
+                die($e->getMessage());
+            }
+
+            
+            
+
+
+            
+            
            }
             $this->view('pages/registration');
         }
