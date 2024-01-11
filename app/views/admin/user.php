@@ -17,9 +17,11 @@
                     <th>EMAIL</th>
                     <th>IMAGE</th>
                     <th>CREATED AT</th>
+                    <th>ACTION</th>
+
                 </thead>
-                <tbody class="bg-gray-300 bg-opacity-50">
-                  
+                <tbody id="users" class="bg-gray-300 bg-opacity-50">
+                
 
                 </tbody>
             </table>

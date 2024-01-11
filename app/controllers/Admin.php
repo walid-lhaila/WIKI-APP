@@ -103,12 +103,31 @@ class Admin extends Controller {
     }catch(PDOException $e){
         die($e->getMessage());
     }
-
-
 }
-
 $this->view('admin/user');
 }
+
+    public function displayUser(){
+        $usersService = new UserServiceImp();
+        try {
+            $users = $usersService->displayUser();
+            echo json_encode($users);
+        }
+        catch(PDOException $e){
+            die($e->getMessage());
+        }
+    }
+
+    public function displayCategory(){
+        $categoryService = new CategoryServiceImp();
+        try{
+            $categories = $categoryService->displayCategory();
+            echo json_encode($categories);
+        }
+        catch(PDOException $e){
+            die($e->getMessage());
+        }
+    }
 }
 
 

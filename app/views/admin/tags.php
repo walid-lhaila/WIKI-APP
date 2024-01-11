@@ -9,19 +9,21 @@
             <button id="btn" class="w-full bg-gray-700 flex items-center justify-center border border-transparent rounded-md py-2 px-4 text-base font-medium text-white hover:bg-orange">Add Tag</button>
             </div>
           </div>
-          <div class="max-w-7xl mx-auto px-4 mt-10 sm:px-6 md:px-8">
+          <div id="tags" class=" flex flex-wrap gap-8 max-w-7xl mx-auto px-4 mt-10 sm:px-6 md:px-8">
             
-            <table id="table">
-                <thead class="bg-gray-700 text-white">
-                    <th>ID</th>
-                    <th>NAME</th>
-                    <th>CREATED AT</th>
-                </thead>
-                <tbody class="bg-gray-300 bg-opacity-50">
-                  
-
-                </tbody>
-            </table>
+            <!--CARDS CATEGORY -->
+             
+            
+            
+            
+                        
+            
+            
+            
+            
+          </div>
+            
+           
             <div id="formulaire" class="bg-gray-900 w-[560px] ml-64 scale-0 duration-700 ">
 <form method="post" class="max-w-md mx-auto bg-gray-900 py-10">
   <div class="flex justify-end" >
@@ -45,7 +47,7 @@
 </div>
           
           </div>
-        </div>
+       
       </main>
 
 <?php require APPROOT."/views/incFile/footer.php"; ?>

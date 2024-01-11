@@ -32,6 +32,15 @@ class CategoryServiceImp implements CategoryService {
     }
 
     public function displayCategory(){
+        $fetshAllCategory = "SELECT * FROM category ORDER BY created_at DESC";
+        $this->db->query($fetshAllCategory);
+
+        try{
+            return $this->db->fetchMultipleRows();
+        }
+        catch(PDOException $e){
+            die($e->getMessage());
+        }
 
     }
 }

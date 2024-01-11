@@ -22,9 +22,13 @@ class UserServiceImp implements UserService {
 
     }
     public function displayUser(){
-        $userService = new UserServiceImp();
+        $fetshAllUsersQuery = "SELECT * FROM appUser ORDER BY created_at DESC";
+        $this->db->query($fetshAllUsersQuery);
+
         try {
-            $users = $userService->
+            return $this->db->fetchMultipleRows();
+        }catch(PDOException $e){
+            die($e->getMessage());
         }
 
     }
