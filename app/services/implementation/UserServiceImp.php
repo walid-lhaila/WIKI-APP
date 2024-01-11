@@ -6,7 +6,7 @@ class UserServiceImp implements UserService {
         $this->db = Database::getInstance();
     }
     public function addUser(AppUser $user){
-        $userToAddQuery = "INSERT INTO appUser (userId, username, pw, email, userImg, created_at) VALUES (:userId, :username, :pw, :email, :userImg, NOW())";
+        $userToAddQuery = "INSERT INTO appUser VALUES (:userId, :username, :pw, :email, :userImg, NOW())";
         $this->db->query($userToAddQuery);
         $this->db->bind(":userId", $user->getUserId());
         $this->db->bind(":username", $user->getUsername());
@@ -22,6 +22,10 @@ class UserServiceImp implements UserService {
 
     }
     public function displayUser(){
+        $userService = new UserServiceImp();
+        try {
+            $users = $userService->
+        }
 
     }
     public function updateUser(AppUser $user){

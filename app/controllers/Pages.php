@@ -31,9 +31,13 @@
             $userToAdd->setPw($pw);
             $userToAdd->setEmail($email);
 
+            $role = new Role();
+            $role->setRoleName("author");
+
 
             $roleOfUser = new RoleOfUser();
             $roleOfUser->setUser($userToAdd);
+            $roleOfUser->setRole($role);
             $SecurityService = new SecurityServiceImp();
             $roleOfUserService = new RoleOfUserServicesImp();
             

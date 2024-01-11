@@ -53,7 +53,7 @@ class SecurityServiceImp implements SecurityService{
             header("location:".URLROOT);
         }
         else if($_SESSION["roleName"] === "author"){
-            header("location:".URLROOT."customer/home");
+            header("location:".URLROOT."/customer/home");
         }
     }
 
@@ -61,7 +61,7 @@ class SecurityServiceImp implements SecurityService{
         if(empty($_SESSION["roleName"])){
             header("location:".URLROOT);
     }else if ($_SESSION["roleName"] === "admin"){
-            header("location:".URLROOT."admin/dashboard");
+            header("location:".URLROOT."/admin/dashboard");
     }
 }
 
