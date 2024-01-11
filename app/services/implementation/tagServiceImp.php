@@ -18,6 +18,13 @@ class tagServiceImp implements tagService {
         }
     }
     public function displayTag(){
+        $fetshAllTags = "SELECT * FROM tag ORDER BY created_at DESC";
+        $this->db->query($fetshAllTags);
+        try {
+           return $this->db->fetchMultipleRows();
+        }catch (PDOException $e){
+            die($e->getMessage());
+        }
         
     }
 

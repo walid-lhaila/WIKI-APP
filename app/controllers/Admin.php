@@ -128,6 +128,17 @@ $this->view('admin/user');
             die($e->getMessage());
         }
     }
+
+    public function displayTag(){
+        $tagService = new TagServiceImp();
+        try {
+            $tag = $tagService->displayTag();
+            echo json_encode($tag);
+        }
+        catch(PDOException $e){
+            die($e->getMessage());
+        }
+    }
 }
 
 
