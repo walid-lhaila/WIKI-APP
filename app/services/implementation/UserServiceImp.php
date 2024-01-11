@@ -36,6 +36,12 @@ class UserServiceImp implements UserService {
 
     }
     public function deleteUser($userId){
+        $deleteUserQuery = "DELETE FROM appUser WHERE userId = :userId";
+        $this->db->query($deleteUserQuery);
+
+        try {
+            w
+        }
 
     }
 }

@@ -8,12 +8,24 @@
             <button id="btn" class="w-full bg-gray-700 flex items-center justify-center border border-transparent rounded-md py-2 px-4 text-base font-medium text-white hover:bg-orange">Add Categorie</button>
             </div>
           </div>
-          
+          <div id="category" class=" flex flex-wrap gap-8 max-w-7xl mx-auto px-4 mt-10 sm:px-6 md:px-8">
+            
+            <!--CARDS CATEGORY -->
+             
+            
+            
+            
+                        
+            
+            
+            
+            
+          </div>
 
                              <!--ENDS CARDS CATEGORY -->
 
-
-<div id="formulaire" class="bg-gray-900 w-[560px] ml-64 scale-0 duration-700 ">
+<div id="formulaire" class="absolute w-full h-full inset-0 bg-opacity-50 backdrop-filter backdrop-blur-md flex justify-center items-center bg-gray-500 scale-0 duration-300">
+<div id="" class="bg-gray-900 w-[560px] ml-[20px] ">
 <form method="post" class="max-w-md mx-auto bg-gray-900 py-10">
   <div class="flex justify-end" >
     <svg id="rmForm"  class="w-6 h-6 text-white dark:text-white cursor-pointer" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -36,6 +48,7 @@
   <button type="submit" name="addCategory" class="text-white bg-orange-600 hover:bg-orange-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
   </div>
 </form>
+</div>
 </div>
 
           

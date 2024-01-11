@@ -26,8 +26,8 @@
                 </tbody>
             </table>
 
-            
-<div id="formulaire" class="bg-gray-900 w-[560px] ml-64 scale-0 duration-700 ">
+<div id="formulaire" class="absolute w-full h-full inset-0 bg-opacity-50 backdrop-filter backdrop-blur-md flex justify-center items-center bg-gray-500 scale-0 duration-300">           
+<div id="" class="bg-gray-900 w-[560px] ml-[20px] ">
 <form class="max-w-md mx-auto bg-gray-900 py-10">
   <div class="flex justify-end" >
     <svg id="rmForm"  class="w-6 h-6 text-white dark:text-white cursor-pointer" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
