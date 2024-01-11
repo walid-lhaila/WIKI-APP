@@ -76,9 +76,35 @@ class Admin extends Controller {
 
 
    public function user(){
-    $this->view('admin/user');
-   }
+    if(isset($_POST["Adduser"])){
+    $userId = uniqid();
+    $username = $_POST["username"];
+    $pw = $_POST["pw"];
+    $email = $_POST["email"];
 
+    $userToAdd = new AppUser();
+    $userToAdd->setUserId($userId);
+    $userToAdd->setUsername($username);
+    $userToAdd->setPw($pw);
+    $userToAdd->setEmail($email);
+
+    $roleOfAdmin = new RoleOfUser();
+    $roleOfAdmin->setUser($userToAdd);
+    $userService = new UserServiceImp();
+    $roleOfAdminService = new RoleOfUserServicesImp();
+    
+    try {
+        $userService->addUser($userToAdd);
+        $roleOfAdminService->AddRoleOfAdmin($roleOfAdmin);
+    }catch(PDOException $e){
+        die($e->getMessage());
+    }
+
+
+}
+
+$this->view('admin/user');
+}
 }
 
 

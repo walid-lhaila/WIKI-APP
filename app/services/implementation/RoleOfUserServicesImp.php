@@ -18,8 +18,21 @@
             die($e->getMessage());
         }
     }
-}
 
+    public function AddRoleOfAdmin(RoleOfUser $roleOfAdmin){
+        $addRoleOfAdminQuery = "INSERT INTO roleofuser (userId, roleName) VALUES (:userId, :roleName)";
+        $this->db->query($addRoleOfAdminQuery);
+        $this->db->bind(":userId", $roleOfAdmin->getUser()->getUserId());
+        $this->db->bind(":roleName", "admin");
+
+        try{
+            $this->db->execute();
+
+        }catch(PDOException $e){
+            die($e->getMessage());
+        }
+    }
+}
 
 
 ?>
