@@ -33,8 +33,8 @@ class tagServiceImp implements tagService {
     }
 
     public function deleteTag($tagId){
-        $deleteTagQuery = "DELETE FROM tag WHERE tgaId = :tagId";
-        echo "Query: " . $deleteTagQuery;
+        $deleteTagQuery = "DELETE FROM tag WHERE tagId = :tagId";
+        // echo "Query: " . $deleteTagQuery;
         $this->db->query($deleteTagQuery);
         $this->db->bind(":tagId",$tagId);
         try {

@@ -51,4 +51,7 @@
         
         </main>
 
+<script defer src="<?php echo URLROOT?>/js/tag.js"></script>
+    
+
   <?php require APPROOT."/views/incFile/footer.php"; ?>

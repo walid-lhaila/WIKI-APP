@@ -73,14 +73,17 @@ public function deleteCategory($categoryId) {
 
                                         // TAGS FUNCTIONS
 
-    public function deleteTag($tagId){
-        $tagService = new tagServiceImp();
+    public function deleteTag(){
+        if(isset($_POST["delete"])){
+            $tagService = new tagServiceImp();
+            $id = $_POST["tagId"];
         try {
-            $tagService->deleteTag($tagId);
-            header("location: http://localhost/wiki/admin/displayTag");
-            exit();
+            $tagService->deleteTag($id);
+            $tags = $tagService->displayTag();
+            echo json_encode($tags);
         } catch (PDOException $e) {
             die($e->getMessage());
+        }
         }
     }
    public function tags(){

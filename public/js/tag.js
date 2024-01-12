@@ -45,7 +45,10 @@
             $.ajax({
                 url: "http://localhost/wiki/admin/deleteTag",
                 type: "POST",
-                data: { tagId: tagId },
+                data: { 
+                    'delete' : 1,
+                    'tagId': tagId 
+                },
                 dataType: "json",
                 success: function(response){
                     fetshTag(response);
@@ -54,8 +57,7 @@
         });
         
         
-        
-        
+         
         
         $.ajax({
             url: "http://localhost/wiki/admin/displayTag",
