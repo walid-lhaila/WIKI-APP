@@ -30,12 +30,13 @@ class CategoryServiceImp implements CategoryService {
     public function deleteCategory($categoryId){
         $deleteCategoryQuery = "DELETE FROM category WHERE categoryId = :categoryId";
         $this->db->query($deleteCategoryQuery);
+        $this->db->bind(":categoryId", $categoryId);
+    
         try {
             $this->db->execute();
-        }catch(PDOException $e){
+        } catch(PDOException $e) {
             die($e->getMessage());
         }
-
     }
 
     public function displayCategory(){

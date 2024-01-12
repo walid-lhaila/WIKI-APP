@@ -54,31 +54,35 @@ class Admin extends Controller {
 
 public function deleteCategory($categoryId) {
     $categoryService = new CategoryServiceImp(); 
-    try {
-        $categoryService->deleteCategory($categoryId);
-    } catch (Exception $e) {
-        die($e->getMessage());
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['categoryId']) {
+        $categoryId = $_POST['categoryId'];
+        try {
+            $categoryService->deleteCategory($categoryId);
+            // Redirect to the page where you display categories after deletion
+            header("Location: http://localhost/wiki/admin/displayCategory");
+            exit();
+        }catch(PDOException $e) {
+            die($e->getMessage());
+        }
+        
     }
 }
-
-    
-
-
-
-
                               // END CATEGORY FUNCTIONS
-
-
-
-
-   public function wikis(){
-    $this->view('admin/wikis');
-   }
 
 
 
                                         // TAGS FUNCTIONS
 
+    public function deleteTag($tagId){
+        $tagService = new tagServiceImp();
+        try {
+            $tagService->deleteTag($tagId);
+            header("location: http://localhost/wiki/admin/displayTag");
+            exit();
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
    public function tags(){
     if(isset($_POST["addTag"])){
     $tagId = uniqid();
@@ -166,6 +170,14 @@ $this->view('admin/user');
 
                                             // END USERS FUNCTIONS
 
+
+
+                                            
+
+
+   public function wikis(){
+    $this->view('admin/wikis');
+   }
 
 
    
