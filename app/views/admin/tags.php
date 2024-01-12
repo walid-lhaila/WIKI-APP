@@ -9,7 +9,7 @@
               <button id="btn" class="w-full bg-gray-700 flex items-center justify-center border border-transparent rounded-md py-2 px-4 text-base font-medium text-white hover:bg-orange">Add Tag</button>
               </div>
             </div>
-            <div id="tags" class=" flex flex-wrap gap-8 max-w-7xl mx-auto px-4 mt-10 sm:px-6 md:px-8">
+            <div id="tags" class=" flex flex-wrap gap-5 max-w-7xl mx-auto px-4 mt-10 sm:px-6 md:px-8">
               
               <!--CARDS CATEGORY -->
               

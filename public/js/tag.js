@@ -4,7 +4,7 @@
             $.each(response, function(index, row){
                 $("#tags").append(`
 
-                <div class="w-full h-96 max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
+                <div class="w-72 h-96 max-w-xs overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
                     <img class="object-cover w-full h-56" src="<?= URLROOT =?>/img/upload.jpg" alt="tag">
 
                     <div class="py-5 text-center">

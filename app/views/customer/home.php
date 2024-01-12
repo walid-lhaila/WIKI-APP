@@ -29,24 +29,22 @@
                 <div class="flex space-x-4">
                   
                     <a href="#" class="text-white rounded-md py-2 px-3 text-sm font-medium hover:bg-orange-500" >
-                      Dashboard
+                      Home
                     </a>
                   
                     <a href="#" class="text-white hover:bg-orange-500  rounded-md py-2 px-3 text-sm font-medium" x-state-description="undefined: &quot;bg-indigo-700 text-white&quot;, undefined: &quot;text-white hover:bg-indigo-500 hover:bg-opacity-75&quot;">
-                      Team
+                      Category
                     </a>
                   
                     <a href="#" class="text-white hover:bg-orange-500 rounded-md py-2 px-3 text-sm font-medium" x-state-description="undefined: &quot;bg-indigo-700 text-white&quot;, undefined: &quot;text-white hover:bg-indigo-500 hover:bg-opacity-75&quot;">
-                      Projects
+                      Wiki
                     </a>
                   
                     <a href="#" class="text-white hover:bg-orange-500 rounded-md py-2 px-3 text-sm font-medium" x-state-description="undefined: &quot;bg-indigo-700 text-white&quot;, undefined: &quot;text-white hover:bg-indigo-500 hover:bg-opacity-75&quot;">
-                      Calendar
+                      Tag
                     </a>
                   
-                    <a href="#" class="text-white hover:bg-orange-500 rounded-md py-2 px-3 text-sm font-medium" x-state-description="undefined: &quot;bg-indigo-700 text-white&quot;, undefined: &quot;text-white hover:bg-indigo-500 hover:bg-opacity-75&quot;">
-                      Reports
-                    </a>
+                   
                   
                 </div>
               </div>
