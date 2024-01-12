@@ -23,7 +23,7 @@
           <div class="relative h-16 flex items-center justify-between lg:border-b lg:border-indigo-400 lg:border-opacity-25">
             <div class="px-2 flex items-center lg:px-0">
               <div class="flex-shrink-0">
-                <img class="block h-10 w-10" src="<?php echo URLROOT?>/img/icons8-wiki-48.png"> 
+                <img class="block h-9 w-9" src="<?php echo URLROOT?>/img/icons8-wiki-48.png"> 
               </div>
               <div class="hidden lg:block lg:ml-10">
                 <div class="flex space-x-4">
