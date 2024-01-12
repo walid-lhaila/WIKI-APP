@@ -118,6 +118,15 @@ $this->view('admin/user');
         }
     }
 
+    public function deleteUser($userId) {
+        $userService = new UserServiceImp(); 
+        try {
+            $userService->deleteUser($userId);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
     public function displayCategory(){
         $categoryService = new CategoryServiceImp();
         try{
