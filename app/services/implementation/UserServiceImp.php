@@ -35,19 +35,7 @@ class UserServiceImp implements UserService {
     public function updateUser(AppUser $user){
 
     }
-    public function deleteUser($userId){
-        $deleteUserQuery = "DELETE FROM appUser WHERE userId = :userId";
-        $this->db->query($deleteUserQuery);
-        $this->db->bind(":userId",$userId);
-
-        try {
-            $this->db->execute();
-        }
-        catch(PDOException $e){
-            die($e->getMessage());
-        }
-
-    }
+   
 }
 
 

@@ -1,7 +1,7 @@
 const form = document.getElementById("form");
 if (form) {
     form.addEventListener("submit", (e) => {
-        e.preventDefault();
+        
 
     const username = document.getElementById("username");
     const pw = document.getElementById("pw");
@@ -64,7 +64,7 @@ if (form) {
 
     // Check if all fields are valid before submitting
     if (usernameValid && passwordValid && emailValid) {
-        form.submit(); // Submit the form
+        // e.preventDefault(); // Submit the form
     }
     });
 }

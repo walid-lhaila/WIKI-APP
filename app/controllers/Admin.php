@@ -15,7 +15,7 @@ class Admin extends Controller {
    }
 
 
-
+                                // FUNCTIONS GATEGORY
 
    public function categories(){
    
@@ -41,6 +41,33 @@ class Admin extends Controller {
         $this->view('admin/categories');
    }
 
+   public function displayCategory(){
+    $categoryService = new CategoryServiceImp();
+    try{
+        $categories = $categoryService->displayCategory();
+        echo json_encode($categories);
+    }
+    catch(PDOException $e){
+        die($e->getMessage());
+    }
+}
+
+public function deleteCategory($categoryId) {
+    $categoryService = new CategoryServiceImp(); 
+    try {
+        $categoryService->deleteCategory($categoryId);
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
+}
+
+    
+
+
+
+
+                              // END CATEGORY FUNCTIONS
+
 
 
 
@@ -50,7 +77,7 @@ class Admin extends Controller {
 
 
 
-
+                                        // TAGS FUNCTIONS
 
    public function tags(){
     if(isset($_POST["addTag"])){
@@ -72,9 +99,27 @@ class Admin extends Controller {
     $this->view('admin/tags');
    }
 
+   public function displayTag(){
+    $tagService = new TagServiceImp();
+    try {
+        $tag = $tagService->displayTag();
+        echo json_encode($tag);
+    }
+    catch(PDOException $e){
+        die($e->getMessage());
+    }
+}
 
 
 
+                                            // END TAGS FUNCTIONS
+
+
+
+
+
+
+                                            // USERS FUNCTIONS
    public function user(){
     if(isset($_POST["addUser"])){
     $userId = uniqid();
@@ -118,36 +163,14 @@ $this->view('admin/user');
         }
     }
 
-    public function deleteUser($userId) {
-        $userService = new UserServiceImp(); 
-        try {
-            $userService->deleteUser($userId);
-        } catch (Exception $e) {
-            die($e->getMessage());
-        }
-    }
 
-    public function displayCategory(){
-        $categoryService = new CategoryServiceImp();
-        try{
-            $categories = $categoryService->displayCategory();
-            echo json_encode($categories);
-        }
-        catch(PDOException $e){
-            die($e->getMessage());
-        }
-    }
+                                            // END USERS FUNCTIONS
 
-    public function displayTag(){
-        $tagService = new TagServiceImp();
-        try {
-            $tag = $tagService->displayTag();
-            echo json_encode($tag);
-        }
-        catch(PDOException $e){
-            die($e->getMessage());
-        }
-    }
+
+
+   
+
+   
 }
 
 
