@@ -102,10 +102,8 @@
             $this->stmt->execute();
             return $this->stmt->rowCount();
         }
-        public function walid(){
+       
 
-        }
-        
 
     }
 
