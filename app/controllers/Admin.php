@@ -1,8 +1,7 @@
 <?php 
 class Admin extends Controller {
-
     public function __construct(){
-
+       
     }
    
  
@@ -10,9 +9,25 @@ class Admin extends Controller {
    public function dashboard(){
     $securityService = new SecurityServiceImp();
     $securityService->checkForAdmin();  
-    // var_dump($_SESSION["roleName"]);
-    $this->view('admin/dashboard');
+    $wikiCountService = new WikiServiceImp();
+    $userCountService = new UserServiceImp();
+    $categoryCountService = new CategoryServiceImp();
+    $tagCountService = new tagServiceImp();
+    $tagCount = $tagCountService->countTags();
+    $categoryCount = $categoryCountService->countCategory();
+    $userCount = $userCountService->countUsers();
+    $wikiCount = $wikiCountService->countWikis();
+
+    $data = [
+        'userCount' => $userCount,
+        'wikiCount' => $wikiCount,
+        'categoryCount' => $categoryCount,
+        'tagCount' => $tagCount,
+    ];
+
+    $this->view('admin/dashboard', $data);
    }
+
 
 
                                 // FUNCTIONS GATEGORY
@@ -51,6 +66,28 @@ class Admin extends Controller {
         die($e->getMessage());
     }
 }
+public function updateCategory(){
+    if(isset($_POST["edit"])){
+      $categoryId = $_POST["id"];
+      $categoryName = $_POST["name"];
+      $categoryDesc = $_POST["desc"];
+
+      $categoryToUpdate = new Category();
+      $categoryToUpdate->setCategoryId($categoryId);
+      $categoryToUpdate->setCategoryName($categoryName);
+      $categoryToUpdate->setCategoryDesc($categoryDesc);;
+      $categoryService = new CategoryServiceImp();
+      try{
+       $categoryService->updateCategory($categoryToUpdate);
+       $categories = $categoryService->displayCategory();
+       echo json_encode($categories);
+      }
+      catch(PDOException $e){
+       die($e->getMessage());
+      }
+    }
+ }
+
 
 public function deleteCategory($categoryId) {
     $categoryService = new CategoryServiceImp(); 
@@ -117,6 +154,27 @@ public function deleteCategory($categoryId) {
     }
 }
 
+public function updateTag(){
+    if (isset($_POST["edit"])) {
+        $tagId = $_POST["id"];
+        $tagName = $_POST["name"];
+    
+        $tagToUpdate = new Tag();
+        $tagToUpdate->setTagId($tagId);
+        $tagToUpdate->setTagName($tagName);
+        $tagService = new TagServiceImp();
+    
+        try {
+            $tagService->updateTag($tagToUpdate);
+            $tags = $tagService->displayTag();
+            echo json_encode($tags);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
+  }
+
+
 
 
                                             // END TAGS FUNCTIONS
@@ -170,16 +228,92 @@ $this->view('admin/user');
         }
     }
 
+    public function deleteUser(){
+        if(isset($_POST["delete"])){
+            $userService = new UserServiceImp();
+            $id = $_POST["userId"];
+        try {
+            $userService->deleteUser($id);
+            $users = $userService->displayUser();
+            echo json_encode($users);
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+        }
+    }
+
+   
+
+
+
 
                                             // END USERS FUNCTIONS
 
 
 
+
+
+    
                                             
 
 
    public function wikis(){
+    if(isset($_POST['addWiki'])){
+        $wikiId = uniqid();
+        $title = $_POST['title'];
+        $content = $_POST['content'];
+        $wikiImg = $_POST['wikiImg'];
+        $userId = $_POST['userId'];
+        $categoryId = $_POST['categoryId'];
+
+        $wikiToAdd = new Wiki();
+        $wikiToAdd->setWikiId($wikiId);
+        $wikiToAdd->setTitle($title);
+        $wikiToAdd->setContent($content);
+        $wikiToAdd->setWikiImg($wikiImg);
+        $wikiToAdd->setUserId($userId);
+        $wikiToAdd->setCategoryId($categoryId);
+
+        $wikiService = new WikiServiceImp();
+
+        try {
+            $wikiService->addWiki($wikiToAdd);
+        }catch(PDOException $e){
+            die($e->getMessage());
+        }
+
+
+
+
+    }
     $this->view('admin/wikis');
+   }
+
+   public function displayWiki(){
+    $wikiService = new WikiServiceImp();
+    try {
+        $wiki = $wikiService->displayWiki();
+        echo json_encode($wiki);
+    }
+    catch(PDOException $e){
+        die($e->getMessage());
+    }
+   }
+
+   public function deleteWiki(){
+    if(isset($_POST["delete"])){
+        $wikiService = new WikiServiceImp();
+        $id = $_POST["wikiId"];
+    try {
+        $wikiService->deleteWiki($id);
+        $wiki = $wikiService->displayWiki();
+        echo json_encode($wiki);
+    } catch (PDOException $e) {
+        die($e->getMessage());
+    }
+    }
+
+
    }
 
 

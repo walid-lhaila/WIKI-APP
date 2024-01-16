@@ -47,6 +47,40 @@
   </div>
             
             </div>
+
+
+
+            <!--edit form-->
+
+              
+            <div id="editTagForm" class="absolute w-full h-full inset-0 bg-opacity-50 backdrop-filter backdrop-blur-md flex justify-center items-center bg-gray-500 hidden">
+            <div class="container px-4 sm:px-8 mx-auto max-w-lg ">
+
+                <div class="wrapper dark:bg-gray-800 rounded-sm shadow-lg ">
+                    <div class="card px-8 py-4">
+                        <div class="card-image mt-4 mb-6 flex justify-between flex-row-reverse">
+                        
+                          <svg id="closeEditForm"  class="w-6 h-6 text-white dark:text-white cursor-pointer" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m13 7-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                          </svg>
+                          <div class="flex justify-center">
+                              <h1 class="text-white font-bold text-lg">Update Tag</h1>
+                          </div>
+                        </div>
+
+                        <div class="card-mail  mt-5  mb-6">
+                         
+                          <form method="post">
+                            <div class="flex">
+                              <input type="text" name="name" id="name" class=" border-l border-t border-b border-gray-200 rounded-l-md w-full text-base md:text-lg px-3 py-2 focus:outline-none" placeholder="Tag Name">
+                              <button type="submit" class="bg-blue-500 hover:bg-blue-600 hover:border-violet-600 text-white font-bold capitalize px-3 py-2 text-base md:text-lg rounded-r-md border-t border-r border-b border-violet-500" id="editT">Update</button>
+                              </form>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
           </div>
         
         </main>

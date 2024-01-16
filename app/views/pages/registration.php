@@ -41,7 +41,7 @@
               Password
             </label>
             <div class="mt-1">
-              <input type="text" name="pw" id="pw" autocomplete="family-name" class=" py-2 px-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+              <input type="password" name="pw" id="pw" autocomplete="family-name" class=" py-2 px-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
               <p id="pwError" class="text-red-600 font-medium"></p>
             </div>
           </div>

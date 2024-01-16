@@ -5,26 +5,24 @@
           <div class=" flex justify-between max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             <h1 class="text-2xl font-bold text-gray-900">Wikis</h1>
             <div>
-            <button id="btn" class="w-full bg-gray-700 flex items-center justify-center border border-transparent rounded-md py-2 px-4 text-base font-medium text-white hover:bg-orange">Add Wiki</button>
+            <!-- <button id="btn" class="w-full bg-gray-700 flex items-center justify-center border border-transparent rounded-md py-2 px-4 text-base font-medium text-white hover:bg-orange">Add Wiki</button> -->
             </div>
           </div>
-          <div class="max-w-7xl mx-auto px-4 mt-10 sm:px-6 md:px-8">
+          <div id="wiki" class=" flex flex-wrap gap-5 max-w-7xl mx-auto px-4 mt-10 sm:px-6 md:px-8">
+          
+          
             
-            <table id="table">
-                <thead class="bg-gray-700 text-white">
-                    <th>ID</th>
-                    <th>TITLE</th>
-                    <th>CONTENT</th>
-                    <th>IMAGE</th>
-                    <th>USER</th>
-                    <th>FROM CATEGORY</th>
-                    <th>CREATED AT</th>
-                </thead>
-                <tbody class="bg-gray-300 bg-opacity-50">
-                  
+            
+            
+          </div>
+            
 
-                </tbody>
-            </table>
+          
+
+
+
+
+            
 
 <div id="formulaire" class="absolute w-full h-full inset-0 bg-opacity-50 backdrop-filter backdrop-blur-md flex justify-center items-center bg-gray-500 scale-0 duration-300">           
 <div id="" class="bg-gray-900 w-[560px] ml-[20px] ">
@@ -73,5 +71,7 @@
           </div>
         </div>
       </main>
+
+<script defer src="<?php echo URLROOT?>/js/wiki.js"></script>
 
 <?php require APPROOT."/views/incFile/footer.php"; ?>

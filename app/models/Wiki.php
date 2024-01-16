@@ -7,6 +7,7 @@ class Wiki {
     private AppUser $userId;
     private Category $categoryId;
     private $created_at;
+    private $archived_at;
     public function __construct(){
 
     }
@@ -50,7 +51,7 @@ class Wiki {
         return $this->userId;
     }
 
-    public function setUserId($userId){
+    public function setUserId(AppUser $userId){
         $this->userId = $userId;
     }
 
@@ -59,7 +60,7 @@ class Wiki {
         return $this->categoryId;
     }
 
-    public function setCategoryId($categoryId){
+    public function setCategoryId(Category $categoryId){
         $this->categoryId = $categoryId;
     }
 
@@ -70,6 +71,14 @@ class Wiki {
 
     public function setCreatedAt($created_at){
         $this->created_at = $created_at;
+    }
+
+    public function getArchivedAt(){
+        return $this->archived_at;
+    }
+
+    public function setArchivedAt($archived_at){
+        $this->archived_at = $archived_at;
     }
 
 }

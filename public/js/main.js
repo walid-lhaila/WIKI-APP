@@ -1,27 +1,25 @@
 const form = document.getElementById("form");
 if (form) {
-    form.addEventListener("submit", (e) => {
-        
-
+    form.addEventListener("submit", (e) => {  
     const username = document.getElementById("username");
     const pw = document.getElementById("pw");
     const email = document.getElementById("email");
 
     function verifyUsername(username) {
-    const usernameError = document.getElementById("usernameError");
-    
-    if(username === ""){
-        usernameError.textContent = "Please enter a username";
-        return false;
-    }
-    if (!/^[a-zA-Z0-9]+$/.test(username)) {
-        usernameError.textContent = "Please enter a valid username with alphanumeric characters";
-        return false;
-    }
-    else {
-        usernameError.textContent="";
-        return true;
-    }
+        const usernameError = document.getElementById("usernameError");
+        
+        if(username === ""){
+            usernameError.textContent = "Please enter a username";
+            return false;
+        }
+        if (!/^[a-zA-Z0-9]+$/.test(username)) {
+            usernameError.textContent = "Please enter a valid username with alphanumeric characters";
+            return false;
+        }
+        else {
+            usernameError.textContent="";
+            return true;
+        }
     }
 
     function verifyPw(pw) {
@@ -62,9 +60,10 @@ if (form) {
     const passwordValid = verifyPw(pw.value);
     const emailValid = verifyEmail(email.value);
 
-    // Check if all fields are valid before submitting
-    if (usernameValid && passwordValid && emailValid) {
+    
+    if (!usernameValid || !passwordValid || !emailValid) {
         // e.preventDefault(); // Submit the form
+        e.preventDefault();
     }
     });
 }
@@ -83,3 +82,15 @@ rmForm.addEventListener('click', (e) => {
     formulaire.classList.remove("scale-100");
     formulaire.classList.add("scale-0");
 });
+
+
+const btnDrop = document.getElementById('btnDrop');
+const dropDown = document.getElementById('dropDown');
+
+btnDrop.addEventListener('click', (e) => {
+   
+    dropDown.classList.add("scale-100");
+    dropDown.classList.remove("scale-0");
+})
+
+

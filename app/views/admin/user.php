@@ -61,5 +61,6 @@
       </main>
 
 
+  <script defer src="<?php echo URLROOT?>/js/users.js"></script>
 
 <?php require APPROOT."/views/incFile/footer.php"; ?>

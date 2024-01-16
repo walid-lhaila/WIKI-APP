@@ -22,10 +22,25 @@ class CategoryServiceImp implements CategoryService {
         }
 
     }
-
-    public function updateCategory(Category $category){
+    public function countCategory(){
+         $this->db->query("SELECT COUNT(*) as countCategory FROM category");
+         return $result = $this->db->fetchOneRow()->countCategory;
 
     }
+
+    public function updateCategory(Category $category){
+        $updateCategoryQuery = "UPDATE category SET categoryName = :categoryName , categoryDesc = :categoryDesc WHERE categoryId = :categoryId";
+        $this->db->query($updateCategoryQuery);
+        $this->db->bind(":categoryName",$category->getCategoryName());
+        $this->db->bind(":categoryDesc",$category->getCategoryDesc());
+        $this->db->bind(":categoryId",$category->getCategoryId());
+        try{
+          $this->db->execute();
+        }
+        catch(PDOException $e){
+          die($e->getMessage());
+        }
+     }
 
     public function deleteCategory($categoryId){
         $deleteCategoryQuery = "DELETE FROM category WHERE categoryId = :categoryId";

@@ -25,11 +25,14 @@
             $pw = $_POST['pw'];
             $email = $_POST['email'];
 
+
             $userToAdd = new AppUser();
             $userToAdd->setUserId($userId);
             $userToAdd->setUsername($username);
             $userToAdd->setPw($pw);
             $userToAdd->setEmail($email);
+
+            
 
             $role = new Role();
             $role->setRoleName("author");

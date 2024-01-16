@@ -51,11 +51,47 @@
 </div>
 </div>
 
+
+
+<div id="editCatForm" class="absolute w-full h-full inset-0 bg-opacity-50 backdrop-filter backdrop-blur-md flex justify-center items-center bg-gray-500 hidden">
+            <div class="container px-4 sm:px-8 mx-auto max-w-lg ">
+
+                <div class="wrapper bg-gray-800 rounded-sm shadow-lg ">
+                    <div class="card px-8 py-4">
+                        <div class="card-image mt-4 mb-6 flex justify-between flex-row-reverse">
+                        <svg id="closeEditForm"  class="w-6 h-6 text-white dark:text-white cursor-pointer" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m13 7-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                          </svg>
+                          <div class="flex justify-center">
+                              <h1 class="text-white font-bold text-lg">Update Category</h1>
+                          </div>
+                        </div>
+                      <form method="post">
+                        <div class="card-mail flex items-center mt-10 mb-6 ">
+                            <input type="text" id="catName" class=" border border-gray-200 rounded-l-md w-full text-base md:text-lg px-3 py-2 focus:outline-none categoryName" value=""  placeholder="Category Name">
+                        </div>
+                        <div class="card-mail flex items-center mt-10 mb-6">
+                            <input type="text" id="catDesc" class=" border  border-gray-200 rounded-l-md w-full text-base md:text-lg px-3 py-2 focus:outline-none categoryDesc"  placeholder="Category Desc">
+                        </div>
+                        <div class="w-[100%] flex justify-center">
+                            <button id="editC" type="submit" class=" my-[1rem] bg-blue-400 hover:bg-blue-600 hover:border-violet-600 text-white font-bold capitalize px-3 py-2 text-base md:text-lg rounded-r-md rounded-lg border-violet-500" >Update</button>
+                        </div>
+                        </form>
+                        <p id="EditCatErr" class="text-red-500 font-semibold"></p>  
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        
+
           
          
           
         </div>
         
       </main>
+  <script defer src="<?php echo URLROOT?>/js/category.js"></script>
 
 <?php require APPROOT."/views/incFile/footer.php"; ?>
